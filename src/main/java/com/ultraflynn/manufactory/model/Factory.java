@@ -7,7 +7,7 @@ import com.ultraflynn.manufactory.types.SpecializedCommodity;
 
 import static com.ultraflynn.manufactory.model.Factory.Type.*;
 
-public class Factory {
+public class Factory implements Building {
     public enum Type {
         BASIC_INDUSTRY_FACILITY,
         ADVANCED_INDUSTRY_FACILITY,
