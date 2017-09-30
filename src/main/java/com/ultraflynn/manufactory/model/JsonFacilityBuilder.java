@@ -33,7 +33,7 @@ public class JsonFacilityBuilder implements FacilityBuilder {
             } else if ("LAUNCHPAD".equals(buildingType)) {
                 return context.deserialize(jsonElement, Launchpad.class);
             } else {
-                throw new RuntimeException("Unsupport building type " + buildingType);
+                throw new RuntimeException("Unsupported building type " + buildingType);
             }
         }
     }
