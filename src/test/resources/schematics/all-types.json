@@ -10,8 +10,8 @@
           "buildings": [
             {
               "type": "EXTRACTOR",
-              "name": "",
-              "rawMaterial": "NON_CS_CRYSTALS"
+              "name": "extractor-name",
+              "material": "NON_CS_CRYSTALS"
             },
             {
               "type": "FACTORY",
@@ -20,29 +20,17 @@
             },
             {
               "type": "SILO",
-              "name": ""
+              "name": "silo-name"
             },
             {
               "type": "LAUNCHPAD",
-              "name": ""
+              "name": "launchpad-name"
             }
           ],
-          "links": [
+          "routes": [
             {
-              "from": "",
-              "to": ""
-            },
-            {
-              "from": "",
-              "to": ""
-            },
-            {
-              "from": "",
-              "to": ""
-            },
-            {
-              "from": "",
-              "to": ""
+              "from": "route-from",
+              "to": "route-to"
             }
           ]
         }

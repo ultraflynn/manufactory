@@ -9,7 +9,7 @@ public class JsonFacilityBuilderTest {
     @Test
     public void shouldReadFacilityFromFile() {
         JsonFacilityBuilder facilityBuilder = new JsonFacilityBuilder();
-        Facility facility = facilityBuilder.fromFile("src/test/resources/schematics/basic-facility.json");
+        Facility facility = facilityBuilder.fromFile("src/test/resources/schematics/all-types.json");
 
         System.out.println(facility);
         assertThat(facility, is(not(nullValue())));
