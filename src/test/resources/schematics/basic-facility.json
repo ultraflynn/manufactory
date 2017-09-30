@@ -1,0 +1,51 @@
+{
+  "name": "NSC Back-Pocket",
+  "planets": [
+    {
+      "name": "",
+      "installations": [
+        {
+          "name": "Broadcast Nodes",
+          "buildings": [
+            {
+              "type": "EXTRACTOR",
+              "name": "",
+              "rawMaterial": "NON_CS_CRYSTALS"
+            },
+            {
+              "type": "FACTORY",
+              "name": "",
+              "output": "PLASMOIDS"
+            },
+            {
+              "type": "SILO",
+              "name": ""
+            },
+            {
+              "type": "LAUNCHPAD",
+              "name": ""
+            }
+          ],
+          "links": [
+            {
+              "from": "",
+              "to": ""
+            },
+            {
+              "from": "",
+              "to": ""
+            },
+            {
+              "from": "",
+              "to": ""
+            },
+            {
+              "from": "",
+              "to": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
