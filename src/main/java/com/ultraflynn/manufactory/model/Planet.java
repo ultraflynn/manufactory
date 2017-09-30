@@ -3,6 +3,8 @@ package com.ultraflynn.manufactory.model;
 import com.ultraflynn.manufactory.simulate.Result;
 import com.ultraflynn.manufactory.types.RawMaterial;
 
+import java.util.List;
+
 import static com.ultraflynn.manufactory.types.RawMaterial.*;
 
 public class Planet {
@@ -26,9 +28,13 @@ public class Planet {
     }
 
     private final Type type;
+    private final String name;
+    private final List<Installation> installations;
 
-    public Planet(Type type) {
+    public Planet(Type type, String name, List<Installation> installations) {
         this.type = type;
+        this.name = name;
+        this.installations = installations;
     }
 
     public Planet addInstallation(Installation installation) {
@@ -38,5 +44,14 @@ public class Planet {
     public Result simulate() {
         // What needs to be imported and what can be produced on the planet?
         return new Result();
+    }
+
+    @Override
+    public String toString() {
+        return "Planet{" +
+                "type=" + type +
+                ", name='" + name + '\'' +
+                ", installations=" + installations +
+                '}';
     }
 }

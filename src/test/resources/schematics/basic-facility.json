@@ -2,7 +2,8 @@
   "name": "NSC Back-Pocket",
   "planets": [
     {
-      "name": "",
+      "type": "ICE",
+      "name": "ZN0-SR IV",
       "installations": [
         {
           "name": "Broadcast Nodes",

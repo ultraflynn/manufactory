@@ -11,6 +11,7 @@ public class JsonFacilityBuilderTest {
         JsonFacilityBuilder facilityBuilder = new JsonFacilityBuilder();
         Facility facility = facilityBuilder.fromFile("src/test/resources/schematics/basic-facility.json");
 
+        System.out.println(facility);
         assertThat(facility, is(not(nullValue())));
     }
 }

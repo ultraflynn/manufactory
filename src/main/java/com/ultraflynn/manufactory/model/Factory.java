@@ -14,21 +14,34 @@ public class Factory implements Building {
         HIGH_TECH_PRODUCTION_PLANT
     }
 
+    private final String name;
     private final Type type;
 
     public Factory(String name, ProcessedMaterial material) {
-        type = BASIC_INDUSTRY_FACILITY;
+        this.name = name;
+        this.type = BASIC_INDUSTRY_FACILITY;
     }
 
     public Factory(String name, RefinedCommodity commodity) {
-        type = ADVANCED_INDUSTRY_FACILITY;
+        this.name = name;
+        this.type = ADVANCED_INDUSTRY_FACILITY;
     }
 
     public Factory(String name, SpecializedCommodity commodity) {
-        type = ADVANCED_INDUSTRY_FACILITY;
+        this.name = name;
+        this.type = ADVANCED_INDUSTRY_FACILITY;
     }
 
     public Factory(String name, AdvancedCommodity commodity) {
-        type = HIGH_TECH_PRODUCTION_PLANT;
+        this.name = name;
+        this.type = HIGH_TECH_PRODUCTION_PLANT;
+    }
+
+    @Override
+    public String toString() {
+        return "Factory{" +
+                "name='" + name + '\'' +
+                ", type=" + type +
+                '}';
     }
 }
