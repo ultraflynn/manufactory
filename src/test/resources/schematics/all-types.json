@@ -15,8 +15,23 @@
             },
             {
               "type": "FACTORY",
-              "name": "",
-              "output": "PLASMOIDS"
+              "name": "factory-name",
+              "output": "OXYGEN"
+            },
+            {
+              "type": "FACTORY",
+              "name": "factory-name",
+              "output": "POLYARAMIDS"
+            },
+            {
+              "type": "FACTORY",
+              "name": "factory-name",
+              "output": "HERMETIC_MEMBRANES"
+            },
+            {
+              "type": "FACTORY",
+              "name": "factory-name",
+              "output": "RECURSIVE_COMPUTING_MODULE"
             },
             {
               "type": "SILO",

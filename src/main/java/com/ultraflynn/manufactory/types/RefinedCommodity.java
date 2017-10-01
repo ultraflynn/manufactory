@@ -1,5 +1,10 @@
 package com.ultraflynn.manufactory.types;
 
+import com.google.common.collect.Maps;
+
+import java.util.Map;
+import java.util.Optional;
+
 import static com.ultraflynn.manufactory.types.ProcessedMaterial.*;
 
 public enum RefinedCommodity {
@@ -27,6 +32,16 @@ public enum RefinedCommodity {
     TRANSMITTER("Transmitter", CHIRAL_STRUCTURES, PLASMOIDS),
     VIRAL_AGENT("Viral Agent", BIOMASS, BACTERIA),
     WATERCOOLED_CPU("Water-Cooled CPU", WATER, REACTIVE_METALS);
+
+    private static final Map<String, RefinedCommodity> lookup = Maps.newHashMap();
+
+    static {
+        for (RefinedCommodity m : values()) lookup.put(m.toString(), m);
+    }
+
+    public static Optional<RefinedCommodity> fromString(String s) {
+        return Optional.ofNullable(lookup.get(s));
+    }
 
     public static final double VOLUME = 1.5;
 

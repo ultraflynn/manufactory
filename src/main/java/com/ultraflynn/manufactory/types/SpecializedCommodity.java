@@ -1,5 +1,8 @@
 package com.ultraflynn.manufactory.types;
 
+import com.google.common.collect.Maps;
+
+import java.util.Map;
 import java.util.Optional;
 
 import static com.ultraflynn.manufactory.types.RefinedCommodity.*;
@@ -26,6 +29,16 @@ public enum SpecializedCommodity {
     TRANSCRANIAL_MICROCONTROLLERS("Transcranial Microcontrollers", BIOCELLS, NANITES),
     UKOMI_SUPERCONDUCTORS("Ukomi Superconductors", SYNTHETIC_OIL, SUPERCONDUCTORS),
     VACCINES("Vaccines", LIVESTOCK, VIRAL_AGENT);
+
+    private static final Map<String, SpecializedCommodity> lookup = Maps.newHashMap();
+
+    static {
+        for (SpecializedCommodity m : values()) lookup.put(m.toString(), m);
+    }
+
+    public static Optional<SpecializedCommodity> fromString(String s) {
+        return Optional.ofNullable(lookup.get(s));
+    }
 
     public static final double VOLUME = 6.0;
 

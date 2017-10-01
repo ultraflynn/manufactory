@@ -1,5 +1,10 @@
 package com.ultraflynn.manufactory.types;
 
+import com.google.common.collect.Maps;
+
+import java.util.Map;
+import java.util.Optional;
+
 import static com.ultraflynn.manufactory.types.RawMaterial.*;
 
 public enum ProcessedMaterial {
@@ -18,6 +23,16 @@ public enum ProcessedMaterial {
     SILICON("Silicon", FELSIC_MAGMA),
     TOXIC_METALS("Toxic Metals", HEAVY_METALS),
     WATER("Water", AQUEOUS_LIQUIDS);
+
+    private static final Map<String, ProcessedMaterial> lookup = Maps.newHashMap();
+
+    static {
+        for (ProcessedMaterial m : values()) lookup.put(m.toString(), m);
+    }
+
+    public static Optional<ProcessedMaterial> fromString(String s) {
+        return Optional.ofNullable(lookup.get(s));
+    }
 
     public static final double VOLUME = 0.38;
 

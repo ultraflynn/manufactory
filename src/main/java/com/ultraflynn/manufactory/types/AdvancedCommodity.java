@@ -1,5 +1,8 @@
 package com.ultraflynn.manufactory.types;
 
+import com.google.common.collect.Maps;
+
+import java.util.Map;
 import java.util.Optional;
 
 import static com.ultraflynn.manufactory.types.ProcessedMaterial.BACTERIA;
@@ -16,6 +19,16 @@ public enum AdvancedCommodity {
     SELF_HARMONIZING_POWER_CORE("Self-Harmonizing Power Core", CAMERA_DRONES, NUCLEAR_REACTORS, HERMETIC_MEMBRANES),
     STERILE_CONDUITS("Sterile Conduits", SMARTFAB_UNITS, VACCINES, WATER),
     WETWARE_MAINFRAME("Wetware Mainframe", SUPERCOMPUTERS, BIOTECH_RESEARCH_REPORTS, CRYOPROTECTANT_SOLUTION);
+
+    private static final Map<String, AdvancedCommodity> lookup = Maps.newHashMap();
+
+    static {
+        for (AdvancedCommodity m : values()) lookup.put(m.toString(), m);
+    }
+
+    public static Optional<AdvancedCommodity> fromString(String s) {
+        return Optional.ofNullable(lookup.get(s));
+    }
 
     public static final double VOLUME = 100.0;
 
