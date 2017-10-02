@@ -14,3 +14,11 @@ do what it's intended.
 The intention is not to plan PI factory installations, it is to validate them. Other tools
 focus on the planning, _manufactory_ allows you to prove it will work over time and will
 guide as to the resource requirements to run without interruption.
+
+## The End
+
+I have decided that having got this far I want to do things differently so I'm
+not taking this project any further at the moment. The intention was to model
+a PI installation and then determine whether it works.
+
+_ultraflynn/mob_

@@ -5,9 +5,7 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.Optional;
 
-import static com.ultraflynn.manufactory.types.ProcessedMaterial.BACTERIA;
-import static com.ultraflynn.manufactory.types.ProcessedMaterial.REACTIVE_METALS;
-import static com.ultraflynn.manufactory.types.ProcessedMaterial.WATER;
+import static com.ultraflynn.manufactory.types.ProcessedMaterial.*;
 import static com.ultraflynn.manufactory.types.SpecializedCommodity.*;
 
 public enum AdvancedCommodity {
@@ -20,24 +18,18 @@ public enum AdvancedCommodity {
     STERILE_CONDUITS("Sterile Conduits", SMARTFAB_UNITS, VACCINES, WATER),
     WETWARE_MAINFRAME("Wetware Mainframe", SUPERCOMPUTERS, BIOTECH_RESEARCH_REPORTS, CRYOPROTECTANT_SOLUTION);
 
+    public static final double VOLUME = 100.0;
     private static final Map<String, AdvancedCommodity> lookup = Maps.newHashMap();
 
     static {
         for (AdvancedCommodity m : values()) lookup.put(m.toString(), m);
     }
 
-    public static Optional<AdvancedCommodity> fromString(String s) {
-        return Optional.ofNullable(lookup.get(s));
-    }
-
-    public static final double VOLUME = 100.0;
-
     private final String name;
     private final SpecializedCommodity input1;
     private final SpecializedCommodity input2;
     private final Optional<ProcessedMaterial> input3processed;
     private final Optional<SpecializedCommodity> input3specialized;
-
     AdvancedCommodity(String name, SpecializedCommodity input1, SpecializedCommodity input2, ProcessedMaterial input3) {
         this.name = name;
         this.input1 = input1;
@@ -52,5 +44,9 @@ public enum AdvancedCommodity {
         this.input2 = input2;
         this.input3processed = Optional.empty();
         this.input3specialized = Optional.of(input3);
+    }
+
+    public static Optional<AdvancedCommodity> fromString(String s) {
+        return Optional.ofNullable(lookup.get(s));
     }
 }

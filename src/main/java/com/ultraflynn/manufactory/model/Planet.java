@@ -1,6 +1,5 @@
 package com.ultraflynn.manufactory.model;
 
-import com.ultraflynn.manufactory.simulate.Result;
 import com.ultraflynn.manufactory.types.RawMaterial;
 
 import java.util.List;
@@ -8,6 +7,24 @@ import java.util.List;
 import static com.ultraflynn.manufactory.types.RawMaterial.*;
 
 public class Planet {
+    private final Type type;
+    private final String name;
+    private final List<Installation> installations;
+    public Planet(Type type, String name, List<Installation> installations) {
+        this.type = type;
+        this.name = name;
+        this.installations = installations;
+    }
+
+    @Override
+    public String toString() {
+        return "Planet{" +
+                "type=" + type +
+                ", name='" + name + '\'' +
+                ", installations=" + installations +
+                '}';
+    }
+
     public enum Type {
         BARREN("Barren", AQUEOUS_LIQUIDS, BASE_METALS, CARBON_COMPOUNDS, MICRO_ORGANISMS, NOBLE_METALS),
         GAS("Gas", AQUEOUS_LIQUIDS, BASE_METALS, IONIC_SOLUTIONS, NOBLE_GAS, REACTIVE_GAS),
@@ -25,33 +42,5 @@ public class Planet {
             this.name = name;
             this.materials = materials;
         }
-    }
-
-    private final Type type;
-    private final String name;
-    private final List<Installation> installations;
-
-    public Planet(Type type, String name, List<Installation> installations) {
-        this.type = type;
-        this.name = name;
-        this.installations = installations;
-    }
-
-    public Planet addInstallation(Installation installation) {
-        return this;
-    }
-
-    public Result simulate() {
-        // What needs to be imported and what can be produced on the planet?
-        return new Result();
-    }
-
-    @Override
-    public String toString() {
-        return "Planet{" +
-                "type=" + type +
-                ", name='" + name + '\'' +
-                ", installations=" + installations +
-                '}';
     }
 }

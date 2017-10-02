@@ -24,23 +24,21 @@ public enum ProcessedMaterial {
     TOXIC_METALS("Toxic Metals", HEAVY_METALS),
     WATER("Water", AQUEOUS_LIQUIDS);
 
+    public static final double VOLUME = 0.38;
     private static final Map<String, ProcessedMaterial> lookup = Maps.newHashMap();
 
     static {
         for (ProcessedMaterial m : values()) lookup.put(m.toString(), m);
     }
 
-    public static Optional<ProcessedMaterial> fromString(String s) {
-        return Optional.ofNullable(lookup.get(s));
-    }
-
-    public static final double VOLUME = 0.38;
-
     private final String name;
     private final RawMaterial input;
-
     ProcessedMaterial(String name, RawMaterial input) {
         this.name = name;
         this.input = input;
+    }
+
+    public static Optional<ProcessedMaterial> fromString(String s) {
+        return Optional.ofNullable(lookup.get(s));
     }
 }

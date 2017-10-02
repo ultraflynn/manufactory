@@ -33,25 +33,23 @@ public enum RefinedCommodity {
     VIRAL_AGENT("Viral Agent", BIOMASS, BACTERIA),
     WATERCOOLED_CPU("Water-Cooled CPU", WATER, REACTIVE_METALS);
 
+    public static final double VOLUME = 1.5;
     private static final Map<String, RefinedCommodity> lookup = Maps.newHashMap();
 
     static {
         for (RefinedCommodity m : values()) lookup.put(m.toString(), m);
     }
 
-    public static Optional<RefinedCommodity> fromString(String s) {
-        return Optional.ofNullable(lookup.get(s));
-    }
-
-    public static final double VOLUME = 1.5;
-
     private final String name;
     private final ProcessedMaterial input1;
     private final ProcessedMaterial input2;
-
     RefinedCommodity(String name, ProcessedMaterial input1, ProcessedMaterial input2) {
         this.name = name;
         this.input1 = input1;
         this.input2 = input2;
+    }
+
+    public static Optional<RefinedCommodity> fromString(String s) {
+        return Optional.ofNullable(lookup.get(s));
     }
 }

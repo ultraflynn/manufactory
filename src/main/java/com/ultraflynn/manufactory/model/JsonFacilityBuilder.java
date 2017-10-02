@@ -21,6 +21,16 @@ public class JsonFacilityBuilder implements FacilityBuilder {
         GSON = builder.create();
     }
 
+    @Override
+    public Facility fromFile(String definitionFile) {
+        try {
+            FileReader json = new FileReader(new File(definitionFile));
+            return GSON.fromJson(json, Facility.class);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private static class BuildingDeserializer implements JsonDeserializer<Building> {
         @Override
         public Building deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext context)
@@ -54,16 +64,6 @@ public class JsonFacilityBuilder implements FacilityBuilder {
             } else {
                 throw new RuntimeException("Unsupported building " + buildingType);
             }
-        }
-    }
-
-    @Override
-    public Facility fromFile(String definitionFile) {
-        try {
-            FileReader json = new FileReader(new File(definitionFile));
-            return GSON.fromJson(json, Facility.class);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         }
     }
 }

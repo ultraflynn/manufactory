@@ -30,23 +30,17 @@ public enum SpecializedCommodity {
     UKOMI_SUPERCONDUCTORS("Ukomi Superconductors", SYNTHETIC_OIL, SUPERCONDUCTORS),
     VACCINES("Vaccines", LIVESTOCK, VIRAL_AGENT);
 
+    public static final double VOLUME = 6.0;
     private static final Map<String, SpecializedCommodity> lookup = Maps.newHashMap();
 
     static {
         for (SpecializedCommodity m : values()) lookup.put(m.toString(), m);
     }
 
-    public static Optional<SpecializedCommodity> fromString(String s) {
-        return Optional.ofNullable(lookup.get(s));
-    }
-
-    public static final double VOLUME = 6.0;
-
     private final String name;
     private final RefinedCommodity input1;
     private final RefinedCommodity input2;
     private final Optional<RefinedCommodity> input3;
-
     SpecializedCommodity(String name, RefinedCommodity input1, RefinedCommodity input2) {
         this.name = name;
         this.input1 = input1;
@@ -59,5 +53,9 @@ public enum SpecializedCommodity {
         this.input1 = input1;
         this.input2 = input2;
         this.input3 = Optional.of(input3);
+    }
+
+    public static Optional<SpecializedCommodity> fromString(String s) {
+        return Optional.ofNullable(lookup.get(s));
     }
 }
